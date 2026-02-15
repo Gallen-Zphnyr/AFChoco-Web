@@ -1,24 +1,7 @@
 <?php
-session_start();
-require 'db_connect.php';
-
-// CATEGORY CONSTRUCTOR - Truly dynamic category system
-// Replace the entire CategoryManager class with this:
-class CategoryManager {
-    private $conn;
-    private $categories;
-    
-    public function __construct($database_connection) {
-        $this->conn = $database_connection;
-        $this->loadCategoriesFromDatabase();
-    }
-    
-    // Load categories dynamically from database
-    private function loadCategoriesFromDatabase() {
-        try {
-            $stmt = $this->conn->prepare("SELECT category_id, category_name FROM categories ORDER BY category_id");
-            $stmt->execute();
-            $result = $stmt->get_result();
+// Redirect to new Firestore-based MainPage
+header('Location: ../MainPage.php');
+exit;
             
             $gradients = [
                 1 => 'linear-gradient(to bottom, #55361A, #CDACB1)',
